@@ -26,7 +26,7 @@
   color: rgb(112, 76, 182);
 }
 
-@keyframes App-logo-float {
+/* @keyframes App-logo-float {
   0% {
     transform: translateY(0);
   }
@@ -36,4 +36,25 @@
   100% {
     transform: translateY(0px);
   }
-}
+} */
+
+.line {
+  height: 11px;
+  background: #d1d2d4; 
+  position: relative;
+  &:before, &:after  {
+      content: '';
+      height: 11px;
+      width: 50%;
+      display: block;
+  }
+  &:before {
+      background: linear-gradient(to right, blue 50%, green 50%);  
+  }
+  &:after {
+      background: linear-gradient(to right, red 50%, violet 50%);
+      position: absolute;
+      top: 0;
+      right: 0;  
+  }
+  }
