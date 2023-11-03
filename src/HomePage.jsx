@@ -29,7 +29,7 @@ export const HomePage = ({ data }) => {
         <Container onClick={generateImage}>
       
       <Sec>
-        <img  src={data.image} alt="" />
+        <img  src={data.image} alt="image" />
       </Sec>
       <Sec2>
         <Head>
