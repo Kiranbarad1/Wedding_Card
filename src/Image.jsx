@@ -10,6 +10,7 @@ const Image = ( props) => {
     const [time, setTime] = useState('');
     const [day, setDay] = useState('');
     const [month, setMonth] = useState('');
+    const [reception, setReception] = useState('');
     const [address, setAddress] = useState('');
     const url = `http://localhost:3000/output`
     const nav = useNavigate();
@@ -32,7 +33,8 @@ const Image = ( props) => {
         time:time,
         month:month,   
         date:date,
-        address:address
+        address:address,
+        reception:reception
     }
     const onClick = ( ) => {
         props.sendData(user);
@@ -56,6 +58,9 @@ const Image = ( props) => {
             <input type="text" onChange={(e)=>setMonth(e.target.value)} />
             <h3>address</h3>
             <input type="text" onChange={(e)=>setAddress(e.target.value)} />
+            
+            <h3>Reception</h3>
+            <input type="text" onChange={(e)=>setReception(e.target.value)} />
             
             <button onClick={onClick}>Click Here</button>
             
