@@ -40,12 +40,17 @@ const Image = ( props) => {
         props.sendData(user);
         nav('/output')
       };
+      function handleSubmit(e) {
+        e.preventDefault();
+    
+      }
     return (
         <>
         <h3>image</h3>
+        <form onSubmit={handleSubmit}>
             <input id="profilePic" type="file" onChange={onChangePicture} />
             <h3>groom</h3>
-            <input type="text" onChange={(e)=>setName(e.target.value)} />
+            <input type="text"  onChange={(e)=>setName(e.target.value)} />
             <h3>bride</h3>
             <input type="text" onChange={(e)=>setFname(e.target.value)} />
             <h3>day</h3>
@@ -63,6 +68,7 @@ const Image = ( props) => {
             <input type="text" onChange={(e)=>setReception(e.target.value)} />
             
             <button onClick={onClick}>Click Here</button>
+            </form>
             
         </>
     );
