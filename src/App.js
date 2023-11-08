@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-// import "./App.css";
-
 import Image from "./Image";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { HomePage } from "./HomePage";
+import Collect from "./Collect";
+import HedderAndFooter from "./HedderAndFooter";
+import { Card } from "./Card";
+
 function App() {
   const [data, setData] = useState({
     image: "?",
@@ -16,9 +18,12 @@ function App() {
   return (
     <>
     
+    <HedderAndFooter />
       <Routes>
-        <Route path="/" element={<Image sendData={sendData} />} />
-        <Route path="/output" element={<HomePage data={data} page-view={33} />} />
+        <Route path="/" element={<Collect />} />
+        <Route path="/custom" element={<Image sendData={sendData} />} />
+        <Route path="/output" element={<HomePage data={data}  />} />
+        <Route path="/card" element={<Card  />} />
       </Routes>
     </>
   );

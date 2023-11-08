@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import html2canvas from "html2canvas";
-export const HomePage = ({ data }) => {
-  console.log(data);
+
+const Output = ({ data }) => {
   const canvasRef = useRef(null);
 
   const generateImage = () => {
@@ -20,45 +20,49 @@ export const HomePage = ({ data }) => {
     });
   };
   return (
-    <div
-      ref={canvasRef}
-      style={{
-        width: "32vw",
-        height: "97vh",
-      }}
-    >
-      <Container onClick={generateImage}>
-        <Sec>
-          <img style={{ width: "32vw" }} src={data.image} alt="image_not_found" />
-        </Sec>
-        <Head>
-          <Welcome>Together with </Welcome>
-          <Welcome2>their family </Welcome2>
-        </Head>
-        <Sec2>
-          <Name>{data.name}</Name>
-          <To>&amp; </To>
-          <Sname>{data.fname}</Sname>
-        </Sec2>
-        <Sec3>
-          <Below>Request the pleasure of your company at</Below>
-          <Below2> the ceremony of their wedding</Below2>
-        </Sec3>
-        <Sec4>
-          <Day>{data.day} </Day>
-          <Date>{data.date} </Date>
-          <Time>At {data.time} </Time>
-          <Month>{data.month}</Month>
-        </Sec4>
-        <Sec5>
-          <Place>{data.address}</Place>
-          <Place2>{data.reception}</Place2>
-        </Sec5>
-      </Container>
-      {/* <button onClick={generateImage}>Generate & Download Image</button> */}
-    </div>
+    <>
+      <div
+        ref={canvasRef}
+        style={{
+          width: "32vw",
+          height: "97vh",
+        }}
+      >
+        <Container onClick={generateImage}>
+          <Sec>
+            <img style={{ width: "32vw" }} src={data.image} alt="image" />
+          </Sec>
+          <Head>
+            <Welcome>Together with </Welcome>
+            <Welcome2>their family </Welcome2>
+          </Head>
+          <Sec2>
+            <Name>{data.name}</Name>
+            <To>&amp; </To>
+            <Sname>{data.fname}</Sname>
+          </Sec2>
+          <Sec3>
+            <Below>Request the pleasure of your company at</Below>
+            <Below2> the ceremony of their wedding</Below2>
+          </Sec3>
+          <Sec4>
+            <Day>{data.day} </Day>
+            <Date>{data.date} </Date>
+            <Time>At {data.time} </Time>
+            <Month>{data.month}</Month>
+          </Sec4>
+          <Sec5>
+            <Place>{data.address}</Place>
+            <Place2>{data.reception}</Place2>
+          </Sec5>
+        </Container>
+        {/* <button onClick={generateImage}>Generate & Download Image</button> */}
+      </div>
+    </>
   );
 };
+
+export default Output;
 
 const Container = styled.div`
   display: flex;
@@ -247,3 +251,4 @@ const Place2 = styled.span`
   top: 400px;
   color: #492929a0;
 `;
+ 

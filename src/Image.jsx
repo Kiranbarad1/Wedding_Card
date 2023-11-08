@@ -1,6 +1,6 @@
 import React ,{useState}from "react";
-import { Route,Routes, useNavigate } from "react-router-dom";
-import { useViewport } from 'react-viewport-hooks';
+import { useNavigate } from "react-router-dom";
+
 const Image = ( props) => {
     const [picture, setPicture] = useState(null);
     const [imgData, setImgData] = useState(null);
@@ -12,7 +12,6 @@ const Image = ( props) => {
     const [month, setMonth] = useState('');
     const [reception, setReception] = useState('');
     const [address, setAddress] = useState('');
-    const url = `http://localhost:3000/output`
     const nav = useNavigate();
     const onChangePicture = (e) => {
       if (e.target.files[0]) {
@@ -39,6 +38,7 @@ const Image = ( props) => {
     const onClick = ( ) => {
         props.sendData(user);
         nav('/output')
+        console.log(picture);
       };
       function handleSubmit(e) {
         e.preventDefault();
@@ -46,8 +46,8 @@ const Image = ( props) => {
       }
     return (
         <>
-        <h3>image</h3>
         <form onSubmit={handleSubmit}>
+        <h3>image</h3>
             <input id="profilePic" type="file" onChange={onChangePicture} />
             <h3>groom</h3>
             <input type="text"  onChange={(e)=>setName(e.target.value)} />
